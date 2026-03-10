@@ -1,4 +1,4 @@
-const ver = "v2.1.0";
+const ver = "v2.1.1";
 
 const childProcess = require("child_process");
 const path = require("path");
@@ -444,9 +444,7 @@ class Packer {
 				const importStatement = match[0]; // the entire import statement ( ex. a('b/c.luau') )
 				let importPath = match[1]; // the file path within the statement ( ex. b/c.luau )
 
-				if (!importPath.endsWith("/")) {
-					importPath += "/";
-				}
+				const absoluteImportPath = path.resolve(importPath);
 
 				if (!fs.existsSync(importPath)) {
 					console.log(tags.error + `Failed to find the directory "${importPath}"`);
@@ -484,13 +482,14 @@ class Packer {
 							continue;
 						}
 
-						const fullPath = importPath + file;
+						const fullPath = path.join(importPath, file);
+
 						if (fullPath == config.inputFile) {
 							console.log(tags.warn + "Attempted to recursively import the input file!" + tags.reset);
 							continue;
 						}
 
-						const { status, result } = this.parseFile(fullPath, path.dirname(targetPath));
+						const { status, result } = this.parseFile(fullPath);
 
 						if (!status) {
 							continue;
