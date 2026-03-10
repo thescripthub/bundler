@@ -1,0 +1,18 @@
+{
+	"baseDir": "src/",
+	"inputFile": "src/main.luau",
+	"outputFile": "bin/build.luau",
+	"keywordSingle": "IMPORT",
+	"keywordMulti": "IMPORT_MULTI",
+	"keywordDirectory": "IMPORT_DIR",
+	"keywordSingleRaw": "IMPORT_RAW",
+	"keywordBuildTimestamp": "BUILD_TIMESTAMP",
+	"keywordDirectoryThreaded": "TIMPORT_DIR",
+	"tabLength": 4,
+	"smartIndents": true,
+	"redundantImporting": false,
+	"fileComments": true,
+	"verboseLogs": true,
+	"releaseBuild": false,
+	"minify": true
+}
