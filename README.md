@@ -24,8 +24,7 @@ IMPORT("./modules/");
 ```
 ## `IMPORT_RAW`
 Imports the file without wrapping in an anonymous function (useful for variable injection)
-> [!WARNING]
-> Notice: Weird bug I am yet to fix: You have to add a local variable at the end of the file. Normally I just add `local raw` at the end.
+> [!CAUTION] Weird bug I am yet to fix: You have to add a local variable at the end of the file. Normally I just add `local raw` at the end.
 ```lua
 IMPORT_RAW("./file.lua");
 ```
@@ -37,8 +36,7 @@ local Timestamp = BUILD_TIMESTAMP();
 os.date("Build Date: %x # %I:%M %p", Timestamp);
 ```
 # `TIMPORT_DIR`
-> [!CAUTION]
-> Notice: This is experimental and should not be used
+> [!CAUTION] Notice: This is experimental and should not be used
 Imports a directory but wraps each import in a new task.
 ```lua
 TIMPORT_DIR("./modules/");
