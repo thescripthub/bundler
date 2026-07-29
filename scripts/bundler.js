@@ -7,7 +7,7 @@ const fs = require("fs-extra");
 const currentTimestamp = new Date().getTime() / 1000;
 
 let config; // setting config
-if (fs.existsSync("bundler.json")) {
+if (fs.existsSync("settings.json")) {
 	config = JSON.parse(fs.readFileSync("settings.json").toString());
 }
 
